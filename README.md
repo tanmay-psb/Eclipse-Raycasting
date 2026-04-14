@@ -44,7 +44,7 @@ g++ gamedev.cpp -o neon_lab -I"path/to/SFML/include" -L"path/to/SFML/lib" -lsfml
 ```
 
 ## 📜 License
-This project is open-source and free to use for educational purposes.
+This project is open-source and free to use.
 
 ---
-*Created with ❤️ in the Neon Void.*
+*Created by Tanmay*
