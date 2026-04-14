@@ -167,20 +167,20 @@ int main() {
 
             // Menu button clicks
             if (state==MENU && ev.type==Event::MouseButtonPressed && ev.mouseButton.button==Mouse::Left) {
-                // START button: y=250, height=55
-                if (mousePos.y>=250&&mousePos.y<=305&&mousePos.x>=250&&mousePos.x<=550) {
+                // PLAY button: y=310
+                if (mousePos.y>=310&&mousePos.y<=365&&mousePos.x>=250&&mousePos.x<=550) {
                     state=PLAYING;
                     window.setMouseCursorVisible(false);
                     window.setMouseCursorGrabbed(true);
                     Mouse::setPosition(WIN_CENTER, window);
                 }
-                // FULLSCREEN button: y=330
-                if (mousePos.y>=330&&mousePos.y<=385&&mousePos.x>=250&&mousePos.x<=550) {
+                // FULLSCREEN button: y=385
+                if (mousePos.y>=385&&mousePos.y<=440&&mousePos.x>=250&&mousePos.x<=550) {
                     isFullscreen=!isFullscreen;
                     applyWindowMode();
                 }
-                // QUIT button: y=410
-                if (mousePos.y>=410&&mousePos.y<=465&&mousePos.x>=250&&mousePos.x<=550) {
+                // QUIT button: y=460
+                if (mousePos.y>=460&&mousePos.y<=515&&mousePos.x>=250&&mousePos.x<=550) {
                     window.close();
                 }
             }
@@ -210,44 +210,49 @@ int main() {
                 window.draw(line);
             }
 
-            // Panel background
-            RectangleShape panel({320.f,280.f});
-            panel.setOrigin(160.f,140.f); panel.setPosition(WIDTH*0.5f,HEIGHT*0.5f+20.f);
-            panel.setFillColor(Color(10,10,30,180));
-            panel.setOutlineColor(Color(0,160,200,120)); panel.setOutlineThickness(1.5f);
-            window.draw(panel);
-
             // Title
             Text title("ECLIPSE",font,72);
             title.setOrigin(title.getLocalBounds().width*0.5f,0);
-            title.setPosition(WIDTH*0.5f,80.f);
+            title.setPosition(WIDTH*0.5f,55.f);
             int tw=180+(int)(60*sinf(gameTime*1.5f));
             title.setFillColor(Color(tw,230,255));
             window.draw(title);
 
-            Text sub("RAYCASTING ENGINE",font,18);
+            Text sub("RAYCASTING ENGINE",font,17);
             sub.setOrigin(sub.getLocalBounds().width*0.5f,0);
-            sub.setPosition(WIDTH*0.5f,165.f);
+            sub.setPosition(WIDTH*0.5f,148.f);
             sub.setFillColor(Color(100,180,200,200));
             window.draw(sub);
 
-            // Separator line
+            // Separator line under subtitle
             RectangleShape sep({240.f,1.f}); sep.setOrigin(120.f,0);
-            sep.setPosition(WIDTH*0.5f,205.f); sep.setFillColor(Color(0,160,200,150));
+            sep.setPosition(WIDTH*0.5f,178.f); sep.setFillColor(Color(0,160,200,150));
             window.draw(sep);
 
-            // Controls hint
-            Text hint("WASD  Move     Mouse  Look\n E  Interact     ESC  Menu",font,13);
+            // Controls hint (standalone, ABOVE the buttons panel)
+            Text hint("WASD  Move       Mouse  Look\n  E  Interact         ESC  Menu",font,13);
             hint.setOrigin(hint.getLocalBounds().width*0.5f,0);
-            hint.setPosition(WIDTH*0.5f,218.f);
+            hint.setPosition(WIDTH*0.5f,190.f);
             hint.setFillColor(Color(120,140,150,180));
             window.draw(hint);
 
-            // Buttons
+            // Separator line above buttons
+            RectangleShape sep2({240.f,1.f}); sep2.setOrigin(120.f,0);
+            sep2.setPosition(WIDTH*0.5f,290.f); sep2.setFillColor(Color(0,160,200,100));
+            window.draw(sep2);
+
+            // Panel background (buttons area only)
+            RectangleShape panel({320.f,235.f});
+            panel.setOrigin(160.f,0.f); panel.setPosition(WIDTH*0.5f,297.f);
+            panel.setFillColor(Color(10,10,30,170));
+            panel.setOutlineColor(Color(0,160,200,120)); panel.setOutlineThickness(1.5f);
+            window.draw(panel);
+
+            // Buttons (Y positions match click detection above)
             std::string fsLabel = isFullscreen ? "FULLSCREEN  :  ON" : "FULLSCREEN  :  OFF";
-            drawButton(window,font,250,270,300,50,"  PLAY",         mousePos,Color(20,90,40));
-            drawButton(window,font,250,338,300,50,fsLabel,          mousePos,Color(20,50,100));
-            drawButton(window,font,250,406,300,50,"  QUIT",         mousePos,Color(100,20,20));
+            drawButton(window,font,250,310,300,50,"  PLAY",         mousePos,Color(20,90,40));
+            drawButton(window,font,250,385,300,50,fsLabel,          mousePos,Color(20,50,100));
+            drawButton(window,font,250,460,300,50,"  QUIT",         mousePos,Color(100,20,20));
 
             // Version tag
             Text ver("v2.0",font,12); ver.setPosition(WIDTH-50.f,HEIGHT-25.f);
