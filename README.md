@@ -1,5 +1,5 @@
 
-# 🌌 Neon Lab: Cyberpunk Raycasting Engine
+# 🌌 Eclipse : Raycasting Engine
 
 A high-fidelity, pseudo-3D raycasting game engine built with C++ and SFML. Step into a "Cyberpunk Neon Laboratory" featuring dynamic environments, interactive mechanics, and vibrant retro-future aesthetics.
 
