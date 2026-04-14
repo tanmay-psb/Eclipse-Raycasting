@@ -1,22 +1,22 @@
-# Build artifacts
+
 *.exe
 *.o
 *.obj
 *.pdb
 *.ilk
 
-# Dynamic libraries
+
 *.dll
 *.so
 *.dylib
 
-# Zips and archives
+
 *.zip
 *.7z
 *.tar.gz
 *.rar
 
-# IDE and OS specific
+
 .vscode/
 .vs/
 .idea/
@@ -25,7 +25,7 @@
 *.userb
 .DS_Store
 
-# Toolchains and library directories
+
 SFML/
 SFML_Extracted/
 winlibs-*/
